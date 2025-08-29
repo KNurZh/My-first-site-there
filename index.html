@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%234f46e5'/%3E%3Ctext x='32' y='42' font-size='32' text-anchor='middle' fill='white' font-family='Montserrat,Arial,sans-serif'%3E%F0%9F%91%BB%3C/text%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Суперсайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body.night,
+        body.night input,
+        body.night textarea {
+            color: #e0e7ff;
+        }
+        body.night .contacts-form input,
+        body.night .contacts-form textarea {
+            background: #232946;
+            color: #e0e7ff;
+            border: 1px solid #a5b4fc;
+        }
+        body.night .contacts-form input::placeholder,
+        body.night .contacts-form textarea::placeholder {
+            color: #a5b4fc;
+            opacity: 0.8;
+        }
+        body.night .contacts-form button {
+            background: #a5b4fc;
+            color: #232946;
+        }
+        body.night .contacts-form button:hover {
+            background: #fff;
+            color: #232946;
+        }
+        body.night .contacts-info-item svg {
+            color: #ffe066;
+        }
+        body.night .blog-card .blog-date {
+            color: #ffe066;
+        }
+        body.night .project .project-links a,
+        body.night .blog-card a {
+            color: #ffe066;
+        }
+        body.night .project .project-links a:hover,
+        body.night .blog-card a:hover {
+            color: #fff;
+        }
+        body.night .testimonial-author {
+            color: #ffe066;
+        }
+        body.night .about-photo,
+        body.night .testimonial-author img {
+            border-color: #a5b4fc;
+        }
+        body.night {
+            background: linear-gradient(120deg, #232946 0%, #181c2a 100%);
+            color: #e0e7ff;
+        }
+        body.night .about, body.night .services, body.night .skills, body.night .testimonials, body.night .contacts, body.night .blog-section, body.night .portfolio-section, body.night .faq-section {
+            background: #232946;
+            color: #e0e7ff;
+            box-shadow: 0 4px 24px rgba(30,41,59,0.18);
+        }
+        body.night nav {
+            background: #232946;
+            box-shadow: 0 2px 8px rgba(30,41,59,0.18);
+        }
+        body.night .nav-menu li a {
+            color: #a5b4fc;
+        }
+        body.night .nav-menu li a:hover {
+            color: #fff;
+        }
+        body.night header {
+            background: #1a223a;
+            color: #e0e7ff;
+        }
+        body.night .project, body.night .blog-card, body.night .testimonial {
+            background: #181c2a;
+            color: #e0e7ff;
+            box-shadow: 0 2px 12px rgba(30,41,59,0.18);
+        }
+        body.night .skills-list li {
+            background: #232946;
+            color: #a5b4fc;
+        }
+        body.night .contacts-form {
+            background: #181c2a;
+        }
+        body.night .faq-question {
+            color: #a5b4fc;
+        }
+        body.night .faq-question:hover {
+            color: #fff;
+        }
+        body.night #toTopBtn {
+            background: #a5b4fc;
+            color: #232946;
+        }
+        body.night #toTopBtn:hover {
+            background: #fff;
+            color: #232946;
+        }
+        body.night footer {
+            background: linear-gradient(90deg,#181c2a 60%,#232946 100%);
+            color: #a5b4fc;
+        }
+        body.night .footer-social a {
+            color: #a5b4fc;
+        }
+        body.night .footer-social a:hover {
+            color: #fff;
+        }
+        .night-toggle {
+            position: fixed;
+            top: 18px;
+            right: 24px;
+            z-index: 2000;
+            background: #fff;
+            color: #4f46e5;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.13);
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+        #animated-bg { z-index: -2 !important; }
+        .night-toggle.night {
+            background: #232946;
+            color: #ffe066;
+            box-shadow: 0 2px 8px rgba(30,41,59,0.18);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+            color: #22223b;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Декоративные элементы */
+        .bg-decor {
+            position: fixed;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-decor.circle1 {
+            top: 60px; left: -80px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, #a5b4fc 0%, #e0e7ff 100%);
+            border-radius: 50%;
+            opacity: 0.25;
+        }
+        .bg-decor.circle2 {
+            bottom: 80px; right: -100px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #818cf8 0%, #e0e7ff 100%);
+            border-radius: 50%;
+            opacity: 0.18;
+        }
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+            padding: 0 0 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 16px 0;
+            transition: max-height 0.3s cubic-bezier(.4,0,.2,1);
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            margin-left: 12px;
+            z-index: 120;
+        }
+        .burger span {
+            display: block;
+            height: 4px;
+            width: 28px;
+            background: #4f46e5;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .burger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        @media (max-width: 800px) {
+            .nav-container {
+                justify-content: flex-end;
+            }
+            .nav-menu {
+                position: absolute;
+                top: 60px;
+                right: 16px;
+                background: #fff;
+                box-shadow: 0 8px 32px rgba(79,70,229,0.13);
+                border-radius: 14px;
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                width: 180px;
+                max-height: 0;
+                overflow: hidden;
+                z-index: 110;
+                transition: max-height 0.3s cubic-bezier(.4,0,.2,1);
+            }
+            .nav-menu.open {
+                max-height: 400px;
+                padding: 10px 0;
+            }
+            .nav-menu li {
+                margin: 0;
+            }
+            .nav-menu li a {
+                display: block;
+                padding: 14px 24px;
+                font-size: 1.08rem;
+                border-radius: 8px;
+            }
+            .nav-menu li a:hover {
+                background: #e0e7ff;
+            }
+            .burger {
+                display: flex;
+            }
+        }
+        .nav-menu li a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .nav-menu li a:hover {
+            color: #3064a3;
+        }
+        header {
+            background: #6688c7;
+            color: #fff;
+            padding: 40px 0 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .about, .services, .skills, .testimonials, .contacts, .blog-section, .portfolio-section, .faq-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(79,70,229,0.07);
+            padding: 32px;
+            animation: fadeIn 1.2s;
+        }
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        .contacts-info {
+            flex: 1 1 220px;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .contacts-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.08rem;
+        }
+        .contacts-info-item svg {
+            width: 22px;
+            height: 22px;
+            color: #4f46e5;
+        }
+        .contacts-form {
+            flex: 2 1 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 12px rgba(79,70,229,0.05);
+        }
+        .about h2, .services h2, .skills h2, .testimonials h2, .contacts h2 {
+            margin-top: 0;
+            color: #4f46e5;
+        }
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+        }
+        .project, .blog-card {
+            background: #f1f5f9;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(79,70,229,0.05);
+            padding: 24px;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .project:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 12px 36px rgba(79,70,229,0.18);
+        }
+        .blog-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+        }
+        .blog-card h3 {
+            margin-top: 0;
+            color: #3730a3;
+        }
+        .blog-card p {
+            margin-bottom: 0;
+        }
+        .blog-card .blog-date {
+            font-size: 0.95rem;
+            color: #818cf8;
+            margin-bottom: 8px;
+        }
+        .project h3 {
+            margin-top: 0;
+            color: #3730a3;
+        }
+        .project p {
+            margin-bottom: 0;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .skills-list li {
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .testimonial {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 18px 24px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.05);
+        }
+        .testimonial:last-child {
+            margin-bottom: 0;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: #4f46e5;
+            margin-top: 8px;
+        }
+        .contacts-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+        }
+        .contacts-form input, .contacts-form textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #c7d2fe;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .contacts-form button {
+            background: #4f46e5;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.10);
+        }
+        .contacts-form button:hover {
+            background: #3730a3;
+            transform: scale(1.07);
+            box-shadow: 0 6px 18px rgba(79,70,229,0.18);
+        }
+        /* FAQ */
+        .faq-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(79,70,229,0.07);
+            padding: 32px;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s;
+        }
+        .faq-section h2 {
+            color: #4f46e5;
+        }
+        .faq-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .faq-item {
+            margin-bottom: 18px;
+        }
+        .faq-question {
+            font-weight: 700;
+            cursor: pointer;
+            color: #3730a3;
+            margin-bottom: 6px;
+            transition: color 0.2s;
+        }
+        .faq-question:hover {
+            color: #4f46e5;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+            color: #22223b;
+            font-size: 1rem;
+            padding-left: 8px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-bottom: 8px;
+        }
+        /* Кнопка наверх */
+        #toTopBtn {
+            position: fixed;
+            right: 24px;
+            bottom: 32px;
+            z-index: 999;
+            background: #4f46e5;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 2rem;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, background 0.2s;
+        }
+        #toTopBtn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #toTopBtn:hover {
+            background: #3730a3;
+        }
+        footer {
+            background: #3730a3;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 60px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+        .fade-in.hide {
+            opacity: 0;
+            transform: translateY(60px);
+            transition-delay: 0s;
+        }
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 32px;
+        }
+        .about-photo {
+            flex: 0 0 140px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.13);
+            border: 4px solid #e0e7ff;
+        }
+        .about-text {
+            flex: 1 1 220px;
+        }
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .social-links a {
+            color: #4f46e5;
+            font-size: 1.6rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .social-links a:hover {
+            color: #3730a3;
+            transform: scale(1.15);
+        }
+        .project {
+            position: relative;
+            overflow: hidden;
+        }
+        .project::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(120deg,rgba(79,70,229,0.07),rgba(255,255,255,0));
+            pointer-events: none;
+        }
+        .project .project-links {
+            margin-top: 10px;
+        }
+        .project .project-links a {
+            color: #4f46e5;
+            text-decoration: underline;
+            margin-right: 12px;
+            font-size: 0.98rem;
+        }
+        .project .project-links a:hover {
+            color: #3730a3;
+        }
+        .testimonial {
+            position: relative;
+            padding-left: 36px;
+        }
+        .testimonial::before {
+            content: '“';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            font-size: 2.2rem;
+            color: #e0e7ff;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .testimonial-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e0e7ff;
+        }
+        footer {
+            background: linear-gradient(90deg,#3730a3 60%,#4f46e5 100%);
+            color: #fff;
+            text-align: center;
+            padding: 24px 0 18px 0;
+            margin-top: 60px;
+            font-size: 1.08rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        footer .footer-social {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+        footer .footer-social a {
+            color: #e0e7ff;
+            font-size: 1.4rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        footer .footer-social a:hover {
+            color: #fff;
+            transform: scale(1.15);
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .about, .project, .services, .skills, .testimonials, .contacts { padding: 16px; }
+            .nav-menu { gap: 12px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+    <button class="night-toggle" id="nightToggle" title="Ночной режим" aria-label="Ночной режим">🌙</button>
+    <canvas id="animated-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;pointer-events:none;"></canvas>
+    <nav>
+        <div class="nav-container">
+            <div class="burger" id="burger-menu" aria-label="Открыть меню" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="main-nav">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header style="position:relative;overflow:hidden;">
+                <svg style="position:absolute;top:0;left:0;width:100%;height:110px;z-index:0;" viewBox="0 0 1440 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="headerWaveGradient" x1="0" y1="0" x2="1440" y2="110" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#a5b4fc"/>
+                            <stop offset="0.5" stop-color="#20c588"/>
+                            <stop offset="1" stop-color="#e0e7ff"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,80 Q360,120 720,60 T1440,80 L1440,0 L0,0 Z" fill="url(#headerWaveGradient)"/>
+                    <path d="M0,100 Q480,130 960,80 T1440,100 L1440,110 L0,110 Z" fill="#20c588" opacity="0.18"/>
+                </svg>
+        <h1 style="position:relative;z-index:1;">Нурдаулет Косым</h1>
+        <p style="position:relative;z-index:1;">Веб-разработчик | Создаю современные сайты</p>
+    </header>
+    <div class="bg-decor circle1"></div>
+    <div class="bg-decor circle2"></div>
+    <div class="container">
+    <section class="blog-section section fade-in" id="blog">
+            <h2 style="color:#4f46e5;">Блог</h2>
+            <div class="blog-list">
+                <div class="blog-card">
+                    <div class="blog-date">25 августа 2025</div>
+                    <h3>Как выбрать идеальный дизайн для сайта?</h3>
+                    <p>Советы по подбору цветовой схемы, шрифтов и структуры для современного сайта.<span class="blog-more" style="display:none;"> Подробно: Используйте не более 2-3 основных цветов, выбирайте читаемые шрифты, делайте акценты на важных элементах, не перегружайте страницу деталями. Структура должна быть логичной и удобной для пользователя.</span></p>
+                    <a href="#" class="blog-readmore" style="color:#4f46e5;text-decoration:underline;">Читать далее</a>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">20 августа 2025</div>
+                    <h3>Почему адаптивность важна?</h3>
+                    <p>Объясняю, почему сайт должен отлично смотреться на любом устройстве и как этого добиться.<span class="blog-more" style="display:none;"> Подробно: Адаптивный сайт автоматически подстраивается под размер экрана, что повышает удобство для пользователей и улучшает SEO. Используйте медиазапросы, гибкие сетки и изображения.</span></p>
+                    <a href="#" class="blog-readmore" style="color:#4f46e5;text-decoration:underline;">Читать далее</a>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">15 августа 2025</div>
+                    <h3>SEO для новичков</h3>
+                    <p>Простые шаги для продвижения вашего сайта в поисковых системах.<span class="blog-more" style="display:none;"> Подробно: Используйте ключевые слова, оптимизируйте заголовки и описания, делайте сайт быстрым и мобильным, добавляйте качественный контент и получайте внешние ссылки.</span></p>
+                    <a href="#" class="blog-readmore" style="color:#4f46e5;text-decoration:underline;">Читать далее</a>
+                </div>
+            </div>
+        </section>
+    <section class="about section fade-in" id="about">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Фото Нурдаулет Косым" class="about-photo">
+                <div class="about-text">
+                    <p>Я занимаюсь созданием красивых, удобных и современных сайтов. Люблю чистый код, минимализм и новые технологии. Готов реализовать ваши идеи!</p>
+                    <div class="social-links">
+                        <a href="https://t.me/username" target="_blank" title="Telegram"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg></a>
+                        <a href="https://github.com/username" target="_blank" title="GitHub"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.11 2.51.32 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/username" target="_blank" title="LinkedIn"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="services section fade-in" id="services">
+            <h2>Услуги</h2>
+            <ul>
+                <li>Разработка сайтов под ключ</li>
+                <li>Дизайн и верстка</li>
+                <li>Адаптивная и кроссбраузерная верстка</li>
+                <li>SEO-оптимизация</li>
+                <li>Поддержка и сопровождение</li>
+            </ul>
+        </section>
+    <section class="skills section fade-in" id="skills">
+            <h2>Навыки</h2>
+            <ul class="skills-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Figma</li>
+                <li>Адаптивная верстка</li>
+                <li>Git</li>
+                <li>SEO</li>
+            </ul>
+        </section>
+    <section id="portfolio" class="portfolio-section section fade-in">
+            <h2 style="color:#4f46e5;">Портфолио</h2>
+            <div class="portfolio">
+                <div class="project">
+                    <h3>Сайт-визитка</h3>
+                    <p>Минималистичный сайт для презентации услуг и контактов.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Демо</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Интернет-магазин</h3>
+                    <p>Магазин с корзиной, фильтрами и адаптивной версткой.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Демо</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Лендинг для мероприятия</h3>
+                    <p>Яркий лендинг с анимациями и формой обратной связи.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Демо</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Корпоративный сайт</h3>
+                    <p>Сайт для компании с блогом, разделом новостей и личным кабинетом.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Демо</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="testimonials section fade-in" id="testimonials">
+            <h2>Отзывы</h2>
+            <div class="testimonial">
+                <p>Очень доволен работой! Всё быстро, качественно и современно. Рекомендую!</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Айжан">
+                    Айжан, заказчик сайта-визитки
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>Профессиональный подход и отличный результат. Сайт работает идеально на всех устройствах.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Сергей">
+                    Сергей, владелец интернет-магазина
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>Спасибо за индивидуальный подход и внимание к деталям. Сайт превзошёл ожидания!</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Алексей">
+                    Алексей, корпоративный клиент
+                </div>
+            </div>
+        </section>
+    <section class="faq-section section fade-in" id="faq">
+            <h2>FAQ — Часто задаваемые вопросы</h2>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <div class="faq-question">Сколько времени занимает создание сайта?</div>
+                    <div class="faq-answer">В среднем от 5 до 20 дней в зависимости от сложности и объема работ.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">Можно ли заказать только дизайн?</div>
+                    <div class="faq-answer">Да, я могу сделать только дизайн или только верстку — по вашему желанию.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">Какие технологии вы используете?</div>
+                    <div class="faq-answer">HTML5, CSS3, JavaScript, React, Figma, Git, SEO и другие современные инструменты.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">Даете ли вы гарантию на работу?</div>
+                    <div class="faq-answer">Да, гарантия и поддержка предоставляются на все проекты.</div>
+                </li>
+            </ul>
+        </section>
+    <section class="contacts section fade-in" id="contacts">
+            <h2>Контакты</h2>
+            <div class="contacts-info">
+                <div class="contacts-info-item">
+                    <!-- Локация: современная иконка -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.418 0-8-4.03-8-9a8 8 0 1116 0c0 4.97-3.582 9-8 9z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>г. Алматы</span>
+                </div>
+                <div class="contacts-info-item">
+                    <!-- Email: современная иконка -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><polyline points="3 7 12 13 21 7"/></svg>
+                    <span>nurdaulet@email.com</span>
+                </div>
+                <div class="contacts-info-item">
+                    <!-- Телефон: современная иконка -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+7 777 123 45 67</span>
+                </div>
+            </div>
+            <form class="contacts-form" autocomplete="off" onsubmit="event.preventDefault();alert('Спасибо за сообщение!');">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваш email" required>
+                <textarea name="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+                <button type="submit">Отправить</button>
+                <div class="form-status" style="display:none;margin-top:10px;"></div>
+            </form>
+        </section>
+    </div>
+    <footer>
+        &copy; 2025 Нурдаулет Косым | Все права защищены
+        <div class="footer-social">
+            <a href="https://t.me/username" target="_blank" title="Telegram"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg></a>
+            <a href="https://github.com/username" target="_blank" title="GitHub"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.11 2.51.32 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+            <a href="https://www.linkedin.com/in/username" target="_blank" title="LinkedIn"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+    </footer>
+    <button id="toTopBtn" title="Наверх">↑</button>
+    <script>
+// Отправка формы обратной связи через Formspree
+const contactsForm = document.querySelector('.contacts-form');
+if (contactsForm) {
+    contactsForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const status = contactsForm.querySelector('.form-status');
+        status.style.display = 'none';
+        const data = new FormData(contactsForm);
+        // Замените на свою почту, зарегистрировавшись на formspree.io и получив endpoint
+        const endpoint = 'https://formspree.io/f/your_form_id';
+        try {
+            const res = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: data
+            });
+            if (res.ok) {
+                status.textContent = 'Спасибо! Ваше сообщение отправлено.';
+                status.style.color = '#20c588';
+                status.style.display = 'block';
+                contactsForm.reset();
+            } else {
+                status.textContent = 'Ошибка при отправке. Попробуйте позже.';
+                status.style.color = '#e11d48';
+                status.style.display = 'block';
+            }
+        } catch {
+            status.textContent = 'Ошибка сети. Попробуйте позже.';
+            status.style.color = '#e11d48';
+            status.style.display = 'block';
+        }
+    });
+}
+// Кнопки "Читать далее" в блог-карточках
+document.querySelectorAll('.blog-readmore').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const p = this.parentElement.querySelector('p');
+        const more = p.querySelector('.blog-more');
+        if (more.style.display === 'none' || more.style.display === '') {
+            more.style.display = 'inline';
+            this.textContent = 'Скрыть';
+        } else {
+            more.style.display = 'none';
+            this.textContent = 'Читать далее';
+        }
+    });
+});
+// Переключатель ночного режима
+const nightBtn = document.getElementById('nightToggle');
+function setNightMode(on) {
+    document.body.classList.toggle('night', on);
+    nightBtn.classList.toggle('night', on);
+    nightBtn.innerHTML = on ? '☀️' : '🌙';
+    localStorage.setItem('nightMode', on ? '1' : '0');
+}
+nightBtn.addEventListener('click', () => {
+    setNightMode(!document.body.classList.contains('night'));
+});
+// Восстановить режим при загрузке
+if(localStorage.getItem('nightMode') === '1') setNightMode(true);
+
+// Мобильное меню (бургер)
+const burger = document.getElementById('burger-menu');
+const navMenu = document.getElementById('main-nav');
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navMenu.classList.toggle('open');
+});
+// Закрытие меню при клике на ссылку (на мобильных)
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if(window.innerWidth <= 800) {
+            burger.classList.remove('active');
+            navMenu.classList.remove('open');
+        }
+    });
+});
+// Анимированный фон — плавные цветные волны и падающий мяч
+const bgCanvas = document.getElementById('animated-bg');
+if (bgCanvas) bgCanvas.style.zIndex = -2;
+const ctx = bgCanvas.getContext('2d');
+let w = window.innerWidth, h = window.innerHeight;
+function resizeBg() {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    bgCanvas.width = w;
+    bgCanvas.height = h;
+}
+resizeBg();
+window.addEventListener('resize', resizeBg);
+
+const waves = [
+    { amp: 32, freq: 0.002, speed: 0.07, color: 'rgba(129,140,248,0.22)', y: 0.22 },
+    { amp: 48, freq: 0.0013, speed: 0.045, color: 'rgba(79,70,229,0.18)', y: 0.36 },
+    { amp: 38, freq: 0.0017, speed: 0.06, color: 'rgba(236,72,153,0.13)', y: 0.54 },
+    { amp: 24, freq: 0.0022, speed: 0.035, color: 'rgba(16,185,129,0.10)', y: 0.68 }
+];
+let t = 0;
+let animating = false;
+let animFrame = null;
+let scrollDir = 1; // 1 — вниз, -1 — вверх
+let lastScrollY = window.scrollY;
+
+// Мяч
+
+// Мяч с анимацией перемещения по скроллу
+let ball = {
+    r: 28,
+    vy: 0,
+    ay: 0.7,
+    bounce: 0.68,
+    color: 'radial-gradient',
+    shadow: 'rgba(79,70,229,0.18)',
+    x: 0,
+    y: 0
+};
+function getScrollProgress() {
+    // 0 — в самом верху, 1 — в самом низу
+    let doc = document.documentElement;
+    let scrollTop = window.scrollY || doc.scrollTop;
+    let scrollHeight = doc.scrollHeight - window.innerHeight;
+    if (scrollHeight <= 0) return 0;
+    return Math.min(1, Math.max(0, scrollTop / scrollHeight));
+}
+function updateBallPosition() {
+    let p = getScrollProgress();
+    // Левый верхний угол (отступы 20px), правый нижний (отступы 20px)
+    let x0 = 20 + ball.r;
+    let y0 = 20 + ball.r;
+    let x1 = w - 20 - ball.r;
+    let y1 = h - 30 - ball.r;
+    ball.x = x0 + (x1 - x0) * p;
+    ball.y = y0 + (y1 - y0) * p;
+}
+function drawBall() {
+    // Тень
+    let shadowY = Math.min(h-30, ball.y + ball.r + 10);
+    let shadowAlpha = 0.18 * (1 - (h-60-ball.y)/(h-60));
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(ball.x, shadowY, ball.r*0.9, ball.r*0.35, 0, 0, 2*Math.PI);
+    ctx.fillStyle = `rgba(79,70,229,${shadowAlpha.toFixed(2)})`;
+    ctx.filter = 'blur(2px)';
+    ctx.fill();
+    ctx.restore();
+    // Мяч
+    let grad = ctx.createRadialGradient(ball.x-ball.r*0.3, ball.y-ball.r*0.3, ball.r*0.2, ball.x, ball.y, ball.r);
+    grad.addColorStop(0, '#fbbf24');
+    grad.addColorStop(0.5, '#f59e42');
+    grad.addColorStop(1, '#f59e42cc');
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+    ctx.fillStyle = grad;
+    ctx.shadowColor = '#fbbf24';
+    ctx.shadowBlur = 12;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Блик
+    ctx.beginPath();
+    ctx.arc(ball.x-ball.r*0.4, ball.y-ball.r*0.4, ball.r*0.22, 0, 2*Math.PI);
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.fill();
+}
+function updateBall() {
+    updateBallPosition();
+}
+
+function drawWaves() {
+    ctx.clearRect(0,0,w,h);
+    waves.forEach((wave, i) => {
+        ctx.beginPath();
+        for(let x=0;x<=w;x+=2) {
+            let y = h*wave.y + Math.sin(x*wave.freq + t*wave.speed + i*1.7) * wave.amp;
+            if(x===0) ctx.moveTo(x,y);
+            else ctx.lineTo(x,y);
+        }
+        ctx.lineTo(w,h);
+        ctx.lineTo(0,h);
+        ctx.closePath();
+        ctx.fillStyle = wave.color;
+        ctx.fill();
+    });
+    drawBall();
+}
+function animateBg() {
+    if (!animating) return;
+    t += 0.35 * scrollDir;
+    updateBall();
+    drawWaves();
+    animFrame = requestAnimationFrame(animateBg);
+}
+function startBgAnim() {
+    if (!animating) {
+        animating = true;
+        animateBg();
+    }
+}
+function stopBgAnim() {
+    animating = false;
+    if (animFrame) cancelAnimationFrame(animFrame);
+}
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    let currY = window.scrollY;
+    scrollDir = currY > lastScrollY ? 1 : currY < lastScrollY ? -1 : scrollDir;
+    lastScrollY = currY;
+    // (Прыжки отключены, теперь только перемещение по скроллу)
+    startBgAnim();
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(stopBgAnim, 500);
+});
+// Нарисовать первый кадр при загрузке
+drawWaves();
+
+// Анимация появления и исчезновения секций при прокрутке
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.classList.remove('hide');
+        } else {
+            entry.target.classList.remove('visible');
+            entry.target.classList.add('hide');
+        }
+    });
+}, { threshold: 0.15 });
+fadeEls.forEach(el => observer.observe(el));
+
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', function() {
+        const item = this.parentElement;
+        item.classList.toggle('active');
+    });
+});
+
+// Кнопка наверх
+const toTopBtn = document.getElementById('toTopBtn');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 400) {
+        toTopBtn.classList.add('visible');
+    } else {
+        toTopBtn.classList.remove('visible');
+    }
+});
+toTopBtn.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+    </script>
+</body>
+
+</html>
